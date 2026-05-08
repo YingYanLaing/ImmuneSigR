@@ -4,3 +4,4 @@
 ^README[.]md$
 ^ImmuneSigR\.Rproj$
 ^\.Rproj\.user$
+^cran-comments\.md$
