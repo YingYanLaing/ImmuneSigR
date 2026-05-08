@@ -1,0 +1,21 @@
+Package: ImmuneSigR
+Title: Immune Cell Signature Retrieval and Single-Cell Scoring
+Version: 0.1.0
+Authors@R: c(
+    person("Yingyan", "Liang", , "yingyanliang@i.smu.edu.cn", role = c("aut", "cre")),
+    person("Peng", "Luo", email = "luopeng@smu.edu.cn", role = "aut")
+  )
+Description: Provides a literature-derived database of immune cell markers
+    formatted as Gene Matrix Transposed (GMT) files. Users can search immune
+    cell signatures, retrieve marker lists, export GMT files, create custom
+    marker sets, and score gene-by-cell expression matrices with dependency-free
+    rank-based or mean-expression methods.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.0.0
+NeedsCompilation: no
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

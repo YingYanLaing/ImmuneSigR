@@ -1,0 +1,12 @@
+"metric","value"
+"total_signatures",906
+"signatures_min_5_genes",819
+"b_cell_records",110
+"cd8_cell_name_records",46
+"t_or_nk_signatures_min_5_genes",187
+"matrix_demo_cells",12
+"matrix_rank_demo_score_columns",62
+"matrix_mean_demo_score_columns",62
+"min_signature_genes",1
+"median_signature_genes",44
+"max_signature_genes",200
