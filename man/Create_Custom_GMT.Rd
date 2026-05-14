@@ -4,7 +4,10 @@
 \alias{Create_Custom_GMT}
 \title{Create a Custom GMT File}
 \usage{
-Create_Custom_GMT(marker_list, file_name = "My_Custom_Signatures.gmt")
+Create_Custom_GMT(
+  marker_list,
+  file_name = file.path(tempdir(), "My_Custom_Signatures.gmt")
+)
 }
 \arguments{
 \item{marker_list}{A list where names are cell types and elements are character vectors of genes.}
@@ -18,8 +21,6 @@ Invisibly returns the created GMT file path.
 Converts a user-defined R list of markers into a standard GMT file format.
 }
 \examples{
-\dontrun{
 my_markers <- list(Custom_T = c("CD3D", "CD8A"), Custom_B = c("CD19", "MS4A1"))
 Create_Custom_GMT(my_markers, file_name = file.path(tempdir(), "custom.gmt"))
-}
 }

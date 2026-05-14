@@ -30,10 +30,8 @@ A list containing the marker genes.
 Retrieve the marker gene lists for specified immune cell subpopulations.
 }
 \examples{
-\dontrun{
 # Get all markers
 all_markers <- Get_Markers()
 # Get specific markers
 t_cell_markers <- Get_Markers("T cell")
-}
 }

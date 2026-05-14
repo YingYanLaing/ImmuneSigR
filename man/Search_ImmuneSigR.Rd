@@ -43,8 +43,6 @@ A data frame containing the search results.
 Search for specific immune cell signatures based on metadata such as cell type, literature title, or PMID.
 }
 \examples{
-\dontrun{
 # Search for B cell signatures
 b_cell_info <- Search_ImmuneSigR(keyword = "B cell", search_by = "Cell_Type")
-}
 }

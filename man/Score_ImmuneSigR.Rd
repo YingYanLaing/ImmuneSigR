@@ -55,7 +55,10 @@ A data frame of scores with cells in rows and signatures in columns.
 Scores expression matrices directly with dependency-free rank or mean methods.
 }
 \examples{
-\dontrun{
-scores <- Score_ImmuneSigR(expr_matrix, target_cells = c("B cell", "Plasma cell"), method = "rank")
-}
+# Create a small toy expression matrix
+set.seed(1)
+toy_expr <- matrix(rpois(30, 2), nrow = 3,
+                   dimnames = list(c("CD3D", "CD8A", "CD19"), paste0("cell_", 1:10)))
+# Score the toy matrix (set min_genes = 2 because the toy matrix only has 3 genes)
+scores <- Score_ImmuneSigR(toy_expr, target_cells = "T cell", min_genes = 2, method = "mean")
 }

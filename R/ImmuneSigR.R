@@ -75,10 +75,8 @@ read_internal_meta <- function(include_markers = FALSE) {
 #' @return Invisibly returns the exported GMT file path.
 #' @export
 #' @examples
-#' \dontrun{
 #' Export_ImmuneSigR_GMT(out_dir = tempdir())
-#' }
-Export_ImmuneSigR_GMT <- function(out_dir = ".", create_dir = TRUE) {
+Export_ImmuneSigR_GMT <- function(out_dir = tempdir(), create_dir = TRUE) {
   if (!dir.exists(out_dir)) {
     if (!create_dir) stop("Output directory does not exist: ", out_dir, call. = FALSE)
     dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
@@ -103,10 +101,8 @@ Export_ImmuneSigR_GMT <- function(out_dir = ".", create_dir = TRUE) {
 #' @return A data frame containing the search results.
 #' @export
 #' @examples
-#' \dontrun{
 #' # Search for B cell signatures
 #' b_cell_info <- Search_ImmuneSigR(keyword = "B cell", search_by = "Cell_Type")
-#' }
 Search_ImmuneSigR <- function(keyword = NULL, search_by = "Cell_Type", ignore_case = TRUE,
                               fixed = FALSE, max_results = Inf, include_markers = FALSE) {
   meta <- read_internal_meta(include_markers = include_markers)
@@ -147,12 +143,10 @@ Search_ImmuneSigR <- function(keyword = NULL, search_by = "Cell_Type", ignore_ca
 #' @return A list containing the marker genes.
 #' @export
 #' @examples
-#' \dontrun{
 #' # Get all markers
 #' all_markers <- Get_Markers()
 #' # Get specific markers
 #' t_cell_markers <- Get_Markers("T cell")
-#' }
 Get_Markers <- function(cell_type = NULL, ignore_case = TRUE, fixed = FALSE,
                         min_genes = 1, gmt_file = NULL) {
   sigs <- read_internal_gmt(gmt_file)
@@ -268,11 +262,9 @@ immune_sigr_score_matrix_rank <- function(expr, signatures, score_name = "_score
 #' @return Invisibly returns the created GMT file path.
 #' @export
 #' @examples
-#' \dontrun{
 #' my_markers <- list(Custom_T = c("CD3D", "CD8A"), Custom_B = c("CD19", "MS4A1"))
 #' Create_Custom_GMT(my_markers, file_name = file.path(tempdir(), "custom.gmt"))
-#' }
-Create_Custom_GMT <- function(marker_list, file_name = "My_Custom_Signatures.gmt") {
+Create_Custom_GMT <- function(marker_list, file_name = file.path(tempdir(), "My_Custom_Signatures.gmt")) {
   if(!is.list(marker_list) || is.null(names(marker_list))) {
     stop("marker_list must be a named list of character vectors.", call. = FALSE)
   }
@@ -310,9 +302,12 @@ Create_Custom_GMT <- function(marker_list, file_name = "My_Custom_Signatures.gmt
 #' @return A data frame of scores with cells in rows and signatures in columns.
 #' @export
 #' @examples
-#' \dontrun{
-#' scores <- Score_ImmuneSigR(expr_matrix, target_cells = c("B cell", "Plasma cell"), method = "rank")
-#' }
+#' # Create a small toy expression matrix
+#' set.seed(1)
+#' toy_expr <- matrix(rpois(30, 2), nrow = 3,
+#'                    dimnames = list(c("CD3D", "CD8A", "CD19"), paste0("cell_", 1:10)))
+#' # Score the toy matrix (set min_genes = 2 because the toy matrix only has 3 genes)
+#' scores <- Score_ImmuneSigR(toy_expr, target_cells = "T cell", min_genes = 2, method = "mean")
 Score_ImmuneSigR <- function(expr, target_cells = NULL, min_genes = 5,
                              gmt_file = NULL, score_name = "_score",
                              method = c("auto", "rank", "mean"),

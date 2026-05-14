@@ -5,9 +5,9 @@
 \alias{Export_GMT}
 \title{Export the built-in GMT file}
 \usage{
-Export_ImmuneSigR_GMT(out_dir = ".", create_dir = TRUE)
+Export_ImmuneSigR_GMT(out_dir = tempdir(), create_dir = TRUE)
 
-Export_GMT(out_dir = ".", create_dir = TRUE)
+Export_GMT(out_dir = tempdir(), create_dir = TRUE)
 }
 \arguments{
 \item{out_dir}{A character string specifying the output directory. Defaults to current working directory.}
@@ -21,7 +21,5 @@ Invisibly returns the exported GMT file path.
 Copies the internal ImmuneSigR GMT database to a specified local directory.
 }
 \examples{
-\dontrun{
 Export_ImmuneSigR_GMT(out_dir = tempdir())
-}
 }

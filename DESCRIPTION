@@ -9,7 +9,11 @@ Description: Provides a literature-derived database of immune cell markers
     formatted as Gene Matrix Transposed (GMT) files. Users can search immune
     cell signatures, retrieve marker lists, export GMT files, create custom
     marker sets, and score gene-by-cell expression matrices with dependency-free
-    rank-based or mean-expression methods.
+    rank-based or mean-expression methods. Cell subpopulations are distinguished 
+    by their source PMIDs. For the core curation of the lung cell atlas, 
+    see Travaglini et al. (2020) <doi:10.1038/s41586-020-2922-4>. For the 
+    pan-cancer B cell signatures, see Fitzsimons et al. (2024) 
+    <doi:10.1016/j.ccell.2024.09.011>.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
